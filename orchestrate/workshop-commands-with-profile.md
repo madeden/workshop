@@ -38,7 +38,7 @@ juju update-clouds
 
 
 # Adding credentials for AWS
-juju add-credential aws
+juju add-credential aws/eu-central-1
 
 
 ##### Bootstrapping #####

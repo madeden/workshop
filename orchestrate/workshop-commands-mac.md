@@ -33,7 +33,7 @@ juju add-credential aws
 
 
 ##### Bootstrapping #####
-juju bootstrap aws
+juju bootstrap aws/eu-central-1
 
 
 ##### Adding a model #####
