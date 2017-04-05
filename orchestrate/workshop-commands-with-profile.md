@@ -195,6 +195,13 @@ juju show-status kubernetes-worker --format json | \
   jq -r '.applications."kubernetes-worker".units | keys[]' | \
   xargs -I UNIT juju ssh UNIT "sudo sed -i 's/KUBELET_ARGS=\"/KUBELET_ARGS=\"--cloud-provider=aws\ /' /etc/default/kubelet && sudo systemctl restart kubelet.service"
 
+kubectl run hello-world \
+--replicas=5 \
+--labels="run=load-balancer-example" \
+--image=gcr.io/google-samples/node-hello:1.0 \
+--port=8080
+
+kubectl expose deployment hello-world --type=LoadBalancer --name=hello
 
 ##### Helm #####
 # Initialize Helm
